@@ -1,1 +1,57 @@
-<h1> Guess the Number </h1>
+<html>
+
+<head>
+    <title> Guess The Number</title>
+</head>
+
+<body>
+    <h1> Guess The Number </h1>
+
+    <script>
+        //pick a random number between 1 and 10.  Once the number is chosen, the user can guess a number and your application will provide feedback, 'higher', 'lower' or Got it! in which case the user wins!
+        //Your application will also need to keep track of how many guesses it took and tell the user in the feedback.  The feedback could be for example: 
+        //Congratulations! You guessed the correct number, which was 7 and it took you 3 guesses.
+
+        let num = Math.floor(Math.random() * 11) + 1;
+        let guess = prompt("Guess a number between 1 and 10.");
+        let counter = 0;
+        let gotIt = false;
+        let feedback = "";
+        let times = "times"; 
+        /*
+
+        counter = counter + 1 (adds 1)
+        counter += 1 (used to go further to something like when you wantd to look at pages and you wanted to go 10 pages ahead we would type 10 in the 1 spot)
+        counter ++ 1
+        */
+
+        while (gotIt == false) {
+            counter++;
+            if (guess == num) {
+                if (counter == 1){
+                    times = "time";
+                }
+                feedback = `Congratulations! You guessed the correct number, which was ${num} and you guessed ${counter} ${times}.`;
+                alert(feedback);
+                gotIt = true;
+            } else if (num > guess) {
+                //Higher
+                guess = prompt("That was incorrect, guess higher.");
+
+            } else if (num < guess) {
+                //Lower
+                guess = prompt("That was incorrect, guess lower.");
+
+            } else {
+                alert("You should not see this");
+
+            }
+        }
+
+
+
+        alert(num);
+    </script>
+</body>
+
+</html>
